@@ -47,3 +47,6 @@ go.work.sum
 
 # env file
 .env
+
+# geofeed file
+geofeed.csv
