@@ -14,18 +14,18 @@ This utility is used to validate the format of geofeed files.
 git clone https://github.com/realSunyz/geofeed-validator.git
 
 # Navigate to the directory
-cd geofeed-validator/src
+cd geofeed-tools/src
 
 # Synchronize and clean up dependencies
 go mod tidy
 
 # Build the executable file
-go build -o geofeed-validator
+go build -o geofeed-tools
 ```
 
 ### Run
 ```bash
-./geofeed-validator <path_to_geofeed.csv>
+./geofeed-tools <path_to_geofeed.csv>
 ```
 
 ## Contributing
