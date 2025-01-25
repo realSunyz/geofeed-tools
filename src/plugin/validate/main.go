@@ -2,7 +2,6 @@ package validate
 
 import (
 	"bufio"
-	"embed"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -11,14 +10,12 @@ import (
 	"strings"
 
 	"github.com/realsunyz/geofeed-tools/plugin/color"
+	"github.com/realsunyz/geofeed-tools/plugin/isocode"
 )
 
-//go:embed data/*.json
-var dataFS embed.FS
-
 const (
-	countryFile     = "data/iso3166-1.json"
-	subdivisionFile = "data/iso3166-2.json"
+	countryFile     = "iso3166-1.json"
+	subdivisionFile = "iso3166-2.json"
 )
 
 type Country struct {
@@ -35,7 +32,7 @@ var countries []Country
 var subdivisions SubdivisionMap
 
 func readJSON(filename string, v interface{}) error {
-	data, err := dataFS.ReadFile(filename)
+	data, err := isocode.DataFS.ReadFile(filename)
 	if err != nil {
 		return err
 	}
@@ -151,7 +148,7 @@ func Execute(filePath string) {
 
 	scanner, file, err := readCSV(filePath)
 	if err != nil {
-		fmt.Printf("Failed to %v\n", err)
+		fmt.Printf("Failed to open geofeed file: %v\n", err)
 		return
 	}
 	defer func() {
