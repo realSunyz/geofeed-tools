@@ -1,5 +1,6 @@
 name: Build Action for Go
-on: [push]
+on:
+  [workflow_dispatch]
 
 jobs:
   build:

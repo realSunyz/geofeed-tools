@@ -1,3 +1,3 @@
-module github.com/realsunyz/geofeed-validator
+module github.com/realsunyz/geofeed-tools
 
-go 1.23.2
+go 1.23
